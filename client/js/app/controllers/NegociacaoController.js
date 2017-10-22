@@ -22,7 +22,9 @@ class NegociacaoController
     {
         event.preventDefault();
 
-        let negociacao = this.criarNegociacao(new Date(this._inputData.value.split('-')), 
+        let negociacao = this.criarNegociacao(new Date(
+            ...this._inputData.value.split('-')
+                .map((item, indice) => item - indice % 2)), 
             this._inputQuantidade.value,
             this._inputValor.value);
 
